@@ -1,0 +1,107 @@
+extends ../layout
+
+block content
+  section#header2(style='background: url(img/img01.jpg) center center;')
+  script.
+
+    $(document).ready(function() {
+    introJs().start();
+    var $btnSets = $('#responsive'),
+    $btnLinks = $btnSets.find('a');
+
+    $btnLinks.click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.user-menu>div.user-menu-content").removeClass("active");
+        $("div.user-menu>div.user-menu-content").eq(index).addClass("active");
+    });
+    });
+
+    $( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();
+
+    $('.view').hover(
+        function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+      );
+
+    });
+
+  #content2
+    .container
+        .row.user-menu-container.square
+          .col-md-12.user-details
+            .row.coralbg.white
+              .col-md-6.no-pad
+                .user-pad
+                  h3 Welcome back, #{user.username}
+                  button.btn.btn-labeled.btn-info(type='button', href='/account')
+                    span.btn-label
+                      i.fa.fa-pencil
+                    | Update Profile
+              .col-md-6.no-pad
+                .user-image
+                  img.img-responsive.thumbnail(src='https://farm7.staticflickr.com/6163/6195546981_200e87ddaf_b.jpg')
+            .row.overview
+              .col-md-4.user-pad.text-center
+                h3 FOLLOWERS
+                h4 #{user.numberoffollowers}
+              .col-md-4.user-pad.text-center
+                a(href="/")
+                  h3 FOLLOWING
+                h4 #{user.numberoffollowing}
+              .col-md-4.user-pad.text-center
+                h3 APPRECIATIONS
+                h4 #{user.appreciations}
+
+
+  #content2
+    .content-text
+      h2 Your Stories
+  section#content
+    .containers
+      .row.container-post
+        // begin:article
+        for submission in submissions
+          .col-md-4.col-sm-6
+            .post-container
+              .post-content
+                .heading-title.heading-small
+                  h2
+                    a(href='#') #{submission.title}
+                .post-meta
+                  span
+                    | By
+                    a(href='#', title='Posts by admin', rel='author') Admin
+                  span On September 11, 2014
+                  span
+                    | In
+                    a(href='#') Story
+                p
+                  | #{submission.blurb}
+                .post-link
+                  a(href='#')
+                    span Read more
+              .post-atribut
+                .row
+                  .col-md-4.col-sm-4.col-xs-4
+                    a(href='#')
+                      span
+                        i.fa.fa-heart
+                        |  2000
+                  .col-md-4.col-sm-4.col-xs-4
+                    a(href='#')
+                      span
+                        i.fa.fa-comments
+                        |  400
+                  .col-md-4.col-sm-4.col-xs-4
+                    a(href='#')
+                      span
+                        i.fa.fa-eye
+                        |  2500

@@ -1,0 +1,101 @@
+extends layout
+block content
+  // begin:featured
+  section#header2(style='background: url(img/img01.jpg) center center;')
+  #featured
+    .container
+      .row
+
+        for submission in features
+          .col-md-4.col-sm-4
+            .featured-container
+              .featured-img(style='background: url(img/img03.jpg);')
+                h3
+                  a(href='#') Featured Story..
+  // end:featured
+
+
+  section#content
+    .containers
+      .row.container-post
+        // begin:article
+
+        for submission, i in submissions
+          .col-md-4.col-sm-6
+            div.modal.fade.test(class = i ,tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
+                .modal-dialog.modal-lg
+                  .modal-content
+                    .post-container
+                      .post-content
+                        .heading-title.heading-small
+                          h2
+                            a(href='#') #{submission.title}
+                        .post-meta
+                          span
+                            | By
+                            a(href='#', title='Posts by admin', rel='author') Admin
+                          span On September 11, 2014
+                          span
+                            | In
+                            a(href='#') Story
+                        p
+                          | #{submission.blurb}
+                        .post-link
+                          a(href='#')
+                            span Read more
+                            button.btn.btn-primary(data-toggle='modal', data-target= "." + i ) Large modal
+                      .post-atribut
+                        .row
+                          .col-md-4.col-sm-4.col-xs-4
+                            a(href='#')
+                              span
+                                i.fa.fa-heart
+                                |  2000
+                          .col-md-4.col-sm-4.col-xs-4
+                            a(href='#')
+                              span
+                                i.fa.fa-comments
+                                |  400
+                          .col-md-4.col-sm-4.col-xs-4
+                            a(href='#')
+                              span
+                                i.fa.fa-eye
+                                |  2500
+
+            .post-container
+              .post-content
+                .heading-title.heading-small
+                  h2
+                    a(href='#') #{submission.title}
+                .post-meta
+                  span
+                    | By
+                    a(href='#', title='Posts by admin', rel='author') Admin
+                  span On September 11, 2014
+                  span
+                    | In
+                    a(href='#') Story
+                p
+                  | #{submission.blurb}
+                .post-link
+                  a(href='#')
+                    span Read more
+                    button.btn.btn-primary(data-toggle='modal',href="/" + submission._id data-target= "." + i ) Large modal
+
+              .post-atribut
+                .row
+                  .col-md-4.col-sm-4.col-xs-4
+                    a(href='#')
+                      span
+                        i.fa.fa-heart
+                        |  #{submission.upvotes}
+                  .col-md-4.col-sm-4.col-xs-4
+                    a(href='#')
+                      span
+                        i.fa.fa-comments
+                        |  400
+                  .col-md-4.col-sm-4.col-xs-4
+                    a(href='#')
+                      span
+                        i.fa.fa-eye
+                        |  2500

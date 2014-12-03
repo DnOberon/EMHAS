@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+  section#header2(style='background: url(img/img01.jpg) center center;')
+
+  .container.center-block
+    .omb_login
+      h3.omb_authTitle
+        |  Sign up
+      .row.omb_row-sm-offset-3.omb_socialButtons
+        .col-xs-4.col-sm-2
+          a.btn.btn-lg.btn-block.omb_btn-facebook(href='/auth/facebook')
+            i.fa.fa-facebook.visible-xs
+            span.hidden-xs Facebook
+        .col-xs-4.col-sm-2
+          a.btn.btn-lg.btn-block.omb_btn-twitter(href='/auth/twitter')
+            i.fa.fa-twitter.visible-xs
+            span.hidden-xs Twitter
+        .col-xs-4.col-sm-2
+          a.btn.btn-lg.btn-block.omb_btn-google(href='/auth/google')
+            i.fa.fa-google-plus.visible-xs
+            span.hidden-xs Google+
+      .row.omb_row-sm-offset-3.omb_loginOr
+        .col-xs-12.col-sm-6
+          hr.omb_hrOr
+          span.omb_spanOr or
+
+      .row.omb_row-sm-offset-3
+
+        form.form-horizontal(id='signup-form', method='POST')
+          input(type='hidden', name='_csrf', value=_csrf)
+          .form-group
+            label.col-sm-4.control-label(for='name') User Name
+            .col-sm-5
+              input.form-control(type='name', name='name', id='name', placeholder='User Name', autofocus)
+          .form-group
+            label.col-sm-4.control-label(for='email') Email
+            .col-sm-5
+              input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus)
+          .form-group
+            label.col-sm-4.control-label(for='password') Password
+            .col-sm-5
+              input.form-control(type='password', name='password', id='password', placeholder='Password')
+          .form-group
+            label.col-sm-4.control-label(for='confirmPassword') Confirm Password
+            .col-sm-5
+              input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password')
+          .form-group
+            .col-sm-offset-4.col-sm-6
+              .form-group
+                button.btn.btn-lg.btn-success.btn-block(type='submit') Sign Up

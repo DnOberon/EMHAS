@@ -1,0 +1,31 @@
+extends layout
+block content
+  script.
+    $(document).ready(function() {
+    id="#{story._id}";
+    _csrf="#{_csrf}"
+
+
+      $('#delete').on('click',function(){
+        $.ajax({
+          type: 'POST',
+          url:'/story/delete',
+          data: {'_csrf':_csrf, 'storyid':id},
+          success: function(){
+            alert('Success');
+            },
+          error: function(){
+            alert('Nope');
+            }
+          })
+        });
+    });
+  section#header2(style='background: url(/img/img01.jpg) center center;')
+  section#content
+    container
+      input(type="hidden", name="_csrf", value="#{csrf_token}")
+
+      p #{story.title}
+      p!= story.bodytext
+      #delete
+        button.btn.btn-labeled.btn-default.delete Test

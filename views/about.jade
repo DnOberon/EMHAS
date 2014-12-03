@@ -1,0 +1,84 @@
+extends layout
+block content
+
+  section#header2(style='background: url(img/img01.jpg) center center;')
+  section#content
+    .container
+      .page-header
+          h1 About
+        .row
+          .col-md-12
+            .panel.panel-primary
+              .panel-leftheading
+                h3.panel-lefttitle Mission
+              .panel-rightbody
+                h3
+                  | Our Mission</br>
+                p
+                  | Every mother has a story.</br></br>
+
+                  | We are willing to do whatever it takes to help her tell the world.</br></br>
+
+                  |Moms and Stories was designed as a way for mothers to share their life experiences, without having to run a blog or personal site.
+                  |If you already have a blog or personal site, Moms and Stories has been designed to help you attract readers and highlight the best that your site or blog has to offer
+
+              .clearfix
+    .container(id="faq")
+      .page-header
+          h1 FAQ
+        .row
+          .col-md-6
+            .panel.panel-default
+              .panel-leftheading
+                h3.panel-lefttitle How does Mom and Stories work?
+              .panel-rightbody
+                h3
+                  | How does Mom and Stories work?
+                p
+                  | Anyone is able to sign up and submit a story. Once a story is submitted, it is put into the general story feed so that other users can read your story and explore your other stories or blogs. You can follow certain moms and favorite their stories. </br></br>
+                  | Every week three stories are selected to become features. These featured stories are published on the main page and at the top of the general story feed. Each featured story will be included in an ebook published by Moms and Stories.
+
+              .clearfix
+            .panel.panel-primary
+              .panel-leftheading
+                h3.panel-lefttitle  How can I get my story into the ebook?
+              .panel-rightbody
+                h3
+                  | How can I get my story into the Moms and Stories ebook?
+                p
+                  | To be eligible for the Moms and Stories ebook, a story must first have been a weekly feature.</br></br>
+                  | Features are selected by the team here at Moms and Stories. There is no formula for having your story selected. It’s true that popular stories have a better chance of becoming a feature, but it is by no means set in stone.
+              .clearfix
+          .col-md-6
+            .panel.panel-success
+              .panel-leftheading
+                h3.panel-lefttitle How often is the ebook released?
+              .panel-rightbody
+                h3
+                  | How often is the Moms and Stories ebook published?
+                p
+                  | Moms and Stories will published an ebook twice a year. Each ebook contains all the featured stories for that time period.</br></br>
+                  | Each ebook costs $2.99 and will remain on sale until the next ebook has been published.
+              .clearfix
+
+            .panel.panel-info
+              .panel-leftheading
+                h3.panel-lefttitle What if I have a problem?
+              .panel-rightbody
+                p
+                  | This site is in beta. This means that there might be issues with your experience or ability to interact with the site. We apologize for any problems you might face and hope you'll be patience with us as we continue to grow</br></br>
+                  | If you experience any problem at all, please feel free to contact support at anytime.</br></br></br>
+                  a(href="/contact")
+                    button.btn.btn-warning.btn-lg.sharestory(type='button') Contact Support
+
+              .clearfix
+      .page-header(id="legal")
+          h1 Legal
+        .row
+          .col-md-12
+            .panel.panel-default
+              .panel-leftheading
+                h3.panel-lefttitle Privacy Policy
+              .panel-rightbody
+                include policy.htm
+              .clearfix

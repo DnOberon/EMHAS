@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  #{tests}
+  section#header(style='background: url(img/img01.jpg) center center;')
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          blockquote
+            p
+              | Every Mom has a Story.
+            small
+              | Each week we feature inspiring stories from mothers everywhere
+            i.fa.fa-book
+
+
+
+    .overlay
+  // end:header
+  // begin:featured
+  #featured
+    .container
+      .row
+
+        .col-md-4.col-sm-4
+          .featured-container
+            .featured-img(style='background: url(img/img03.jpg);')
+              h3
+                a(href='#') Featured Story..
+  // end:featured
+
+  section#partner
+    .container
+      .row
+        .col-md-12
+          ul.list-unstyled.brand-img
+            li
+              a(href='#')
+                img(src='img/partner01.png')
+            li
+              a(href='#')
+                img(src='img/partner02.png')
+            li
+              a(href='#')
+                img(src='img/partner01.png')
+            li
+              a(href='#')
+                img(src='img/partner02.png')
+  // end:partner

@@ -1,0 +1,143 @@
+extends layout
+
+block content
+
+  section#header(style='background: url(img/img01.jpg) center center;')
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          blockquote
+            p
+              | Every Mom Has a Story.
+            small
+              | Each week we feature inspiring stories from mothers everywhere
+      .row.hidden-xs
+        .col-md-8.col-md-offset-2
+          blockquote
+            div.ui-group-buttons
+              a(href="#featured")
+                button.btn.btn-primary.btn-lg.buttonfix.left.learnmore(type='button') Learn More
+              div.or.or-lg
+              a(href="/submit")
+                button.btn.btn-warning.btn-lg.sharestory(type='button') Share Your Story
+    .row.visible-xs
+      .col-md-8.col-md-offset-2
+        blockquote
+          div.ui-group-buttons
+            a(href="#featured")
+              button.btn.btn-primary.btn-sm.buttonfix.learnmore(type='button') Learn More
+            div.or.or-md
+            a(href="/submit")
+              button.btn.btn-warning.btn-sm.sharestory(type='button') Share Story
+
+
+
+    .overlay
+
+  // end:header
+  // begin:featured
+  .text-center
+    a(href="/contact")
+      include partials/flash
+  if features != null
+    #featured
+      .container
+        .row
+          for feature,i in features.stories
+
+            .modal.fade(id= "feature" + i , tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+              .modal-dialog
+                .modal-content
+                  .post-container
+                      .post-content
+                        img(src= feature.picture, alt='danish personal blog template')
+                        .heading-title.heading-small
+                          h2
+                            a(href='#') #{feature.title}
+                        .post-meta
+                          span
+                            | By
+                            a(href='#', title='Posts by admin', rel='author')  #{feature.author}
+                          span  On #{feature.date}
+                        p #{feature.blurb}
+                        .post-link
+                          a(href='/story/' + feature._id)
+                            span
+                              h4 Read more
+                      .post-atribut
+                        .row
+                          .col-md-6.col-sm-4.col-xs-6
+                            a(href='#')
+                              span
+                                i.fa.fa-heart
+                                | 2000
+                          .col-md-6.col-sm-4.col-xs-6
+                            a(href='#')
+                              span
+                                i.fa.fa-comments
+                                | 400
+
+
+
+
+            .col-md-4.col-sm-4
+              .featured-container
+                .featured-img(style='background: url(#{feature.picture});')
+                  h3
+                    a(href='#feature'+ i ,data-toggle="modal") Featured Story..
+
+  // end:featured
+  #content2
+    .container
+      .row
+        .col-lg-5.col-lg-offset-1.text-left
+          h1
+            | Our mission
+
+          h3
+            | Every mother has a story.</br></br> We are willing to do whatever it takes to help her tell the world. </br></br>
+            | Moms and Stories was designed as a way for mothers to share their life experiences, without having to run a blog or personal site.
+          h3
+            | If you already have a blog or personal site, Moms and Stories has been designed to help you attract readers and highlight the best that your site or blog has to offer</br></br>
+            .text-center
+              a(href="/faq/howitworks")
+                button.btn.btn-primary.btn-lg.learnmore(type='button') How it Works
+
+        .col-lg-5
+          img(src='/img/book.png' ,class "img-circle")
+  #content(style='background: rgba(42, 108, 127,0.2);')
+    .container
+      .row
+        .col-lg-5.text-center
+          img(src='/img/mom.jpg', class= "img-circle")
+        .col-lg-5.col-lg-offset-1
+          h1
+            | By a Mom, for Moms.
+
+          h3
+            | Moms and Stories was founded by successful author and mom, LaResa Darrington.</br></br>
+            | LaResa knows the power of stories and that , whether fact or fiction, they can have a positive impact on whoever reads them.</br></br>
+            | Hoping to make it easier for Moms to share their experiences, histories, and even bedtime stories - LaResa created Moms and Stories as a hub to make sharing those stories easier. </br></br>
+            .text-center
+              a(href="/submit")
+                button.btn.btn-warning.btn-lg.sharestory(type='button') Share Your Story
+
+
+  section#partner
+    .container
+      .row
+        .col-md-12
+          ul.list-unstyled.brand-img
+            li
+              a(href='#')
+                img(src='img/partner01.png')
+            li
+              a(href='#')
+                img(src='img/partner02.png')
+            li
+              a(href='#')
+                img(src='img/partner01.png')
+            li
+              a(href='#')
+                img(src='img/partner02.png')
+  // end:partner

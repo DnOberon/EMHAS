@@ -1,0 +1,87 @@
+section#content2
+.containers
+.row.container-post
+  // begin:article
+  if stories != undefined
+    for story in stories
+      .col-md-4.col-sm-6
+        .post-container
+          p #{story.slug}
+          case story.displayoptions
+            when "feature"
+              .post-content
+                a(href= '/' + story.author + '/story/' + story.slug)
+                  img(src= story.picture, alt = story.title)
+                .heading-title.heading-small
+                  h2
+                    a(href='#') #{story.title}
+                .post-meta
+                  span
+                    | By
+                    a(href= '/' + story.author + '/story/' + story.slug , title='Posts by admin', rel='author') Admin
+                  span On September 11, 2014
+                  span
+                    | In
+                    a(href= '/' + story.author + '/story/' + story.slug) Story
+                p #{story.blurb}
+                .post-link
+                  a(href= '/' + story.author + '/story/' + story.slug)
+                    span Read more
+            when "pullquote"
+              .post-content
+                a(href= '/' + story.author + '/story/' + story.slug)
+                  blockquote
+                    p
+                      | #{story.pullquote}
+            when "featurenopad"
+              .post-content.no-padding
+                a(href= '/' + story.author + '/story/' + story.slug)
+                  img(src= story.picture, alt = story.title)
+
+                .post-meta
+                  span
+                    | By
+                    a(href= '/' + story.author + '/story/' + story.slug , title='Posts by admin', rel='author') Admin
+                  span On September 11, 2014
+                  span
+                    | In
+                    a(href= '/' + story.author + '/story/' + story.slug) Story
+                p #{story.blurb}
+                .post-link
+                  a(hhref= '/' + story.author + '/story/' + story.slug)
+                    span Read more
+            default
+              .post-content
+                .heading-title.heading-small
+                  h2
+                    a(href= '/' + story.author + '/story/' + story.slug) #{story.title}
+                .post-meta
+                  span
+                    | By
+                    a(href= '/' + story.author + '/story/' + story.slug , title='Posts by admin', rel='author') Admin
+                  span On September 11, 2014
+                  span
+                    | In
+                    a(href= '/' + story.author + '/story/' + story.slug) Story
+                p
+                  | #{story.blurb}
+                .post-link
+                  a(href= '/' + story.author + '/story/' + story.slug)
+                    span Read more
+          .post-atribut
+            .row
+              .col-md-4.col-sm-4.col-xs-4
+                a(href= '/' + story.author + '/story/' + story.slug)
+                  span
+                    i.fa.fa-heart
+                    |  2000
+              .col-md-4.col-sm-4.col-xs-4
+                a(href='#')
+                  span
+                    i.fa.fa-comments
+                    |  400
+              .col-md-4.col-sm-4.col-xs-4
+                a(href='#')
+                  span
+                    i.fa.fa-eye
+                    |  2500

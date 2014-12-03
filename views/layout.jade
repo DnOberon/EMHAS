@@ -1,0 +1,45 @@
+doctype html
+html(lang='en' ng-app)
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge,chrome=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='shortcut icon', href='/img/favicon.png')
+    title Moms and Stories
+    // Bootstrap core CSS
+    link(href='/css/lib/danish/bootstrap.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='http://fonts.googleapis.com/css?family=Raleway:400,800', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Noto+Serif:700,400italic', rel='stylesheet', type='text/css')
+    link(href='/css/lib/danish/font-awesome.min.css', rel='stylesheet')
+    link(href='/css/lib/danish/style.css', rel='stylesheet')
+    link(href='/css/lib/danish/responsive.css', rel='stylesheet')
+    link(href='/css/lib/danish/summernote.css', rel='stylesheet')
+    link(href='/css/lib/danish/summernote-bs3.css', rel='stylesheet')
+
+
+    script(src='/js/lib/jquery-2.1.1.min.js')
+    script.
+      if (window.location.hash && window.location.hash == '#_=_') {
+        window.location.hash = '';
+      }
+
+
+
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='/js/html5shiv.js')
+      script(src='/js/respond.min.js')
+
+  body
+    // begin:navbar
+    include partials/navbar
+
+    // begin:header
+
+
+    block content
+
+    include partials/footer

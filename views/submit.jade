@@ -1,0 +1,53 @@
+extends layout
+block content
+  script.
+
+    $(document).ready(function() {
+    $('.summernote').summernote();
+    var sHTML = $('.summernote').code();
+    });
+  section#header2(style='background: url(/img/img01.jpg) center center;')
+
+
+  #content2
+    .container
+
+    .container
+      h1 Submit Story
+    form.form-horizontal(id = 'story',enctype='multipart/form-data',method='POST', action='/submit', onsubmit="return sHTML")
+      input(type='hidden', name='_csrf', value=_csrf)
+      fieldset
+        .form-group
+          label.col-md-4.control-label(for='title') Title
+          .col-md-4
+            input#title.form-control.input-md(name='title', type='text', required='')
+
+
+        .form-group
+          label.col-md-4.control-label(for='url') URL
+          .col-md-4
+            input#url.form-control.input-md(name='url', type='text')
+            span.help-block Copy and Paste the URL to your story if it lives somewhere else
+
+        .form-group
+          label.col-md-4.control-label(for='blurb') Blurb
+          .col-md-4
+            textarea#blurb.form-control(name='blurb')
+            span.help-block If no blurb is submitted, the first few lines of your story will be used instead
+        .form-group
+          label.col-md-4.control-label(for='bodytext') Story
+          .col-md-4
+            textarea#story.form-control.summernote(name='bodytext')
+
+        .form-group
+              label.col-md-4.control-label(for='photo') Photo
+              .col-md-4
+                .panel.panel-default
+                    .panel-heading
+                      strong  Your story's featured photo
+                    .panel-body
+                        input#js-upload-files(type='file', name='image', multiple='multiple')
+                  span.help-block You must have permission to use the photo you upload
+                h3
+                  button#btn.btn-lg.btn-success(type='submit', name='button2') Submit
+                  span.ion-android-hand

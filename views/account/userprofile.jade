@@ -1,0 +1,97 @@
+extends ../layout
+block content
+  section#header2(style='background: url(/img/img01.jpg) center center;')
+  script.
+    $(document).ready(function() {
+    var $btnSets = $('#responsive'),
+    $btnLinks = $btnSets.find('a');
+
+    $btnLinks.click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.user-menu>div.user-menu-content").removeClass("active");
+        $("div.user-menu>div.user-menu-content").eq(index).addClass("active");
+    });
+    });
+
+    $( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();
+
+    $('.view').hover(
+        function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+      );
+    });
+  link(href='http://fontawesome.io/assets/font-awesome/css/font-awesome.css', rel='stylesheet', media='screen')
+  #content2
+    include ../partials/flash
+    .container
+      if userprofile == null
+        if user.picture == null
+          a(href="/account")
+            .alert.alert-warning
+              | Update your profile to change default user picture
+      .row.user-menu-container.square
+        .col-md-12.user-details
+          .row.coralbg.white
+            .col-md-6.no-pad
+              .user-pad
+                if userprofile == null
+                  h3 Welcome back, #{user.username}
+                else
+                  h2 #{userprofile.username}
+                if userprofile == null
+                  a(href="/account")
+                    button.btn.btn-labeled.btn-default(type='button', href='/account')
+                      span.btn-label
+                        i.fa.fa-pencil
+                      | Update Profile
+
+            .col-md-6.no-pad
+
+              .user-image
+                if user.picture != null
+                  img.img-responsive.thumbnail(src='https://farm7.staticflickr.com/6163/6195546981_200e87ddaf_b.jpg')
+                else
+                  img.img-responsive.thumbnail(src='https://farm7.staticflickr.com/6163/6195546981_200e87ddaf_b.jpg')
+
+          .row.overview
+            if userprofile == null
+              .col-md-4.user-pad.text-center
+                a(href='/profile/' + user.username +'/followers')
+                  h3 FOLLOWERS
+                h4 #{user.numberoffollowers}
+              .col-md-4.user-pad.text-center
+                a(href='/profile/' + user.username +'/following')
+                  h3 FOLLOWING
+                h4 #{user.numberoffollowing}
+              .col-md-4.user-pad.text-center
+                h3 APPRECIATIONS
+                h4 #{user.appreciations}
+            else
+              .col-md-4.user-pad.text-center
+                a(href='/profile/' + userprofile.username +'/followers')
+                  h3 FOLLOWERS
+                h4 #{userprofile.numberoffollowers}
+              .col-md-4.user-pad.text-center
+                a(href='/profile/' + userprofile.username +'/following')
+                  h3 FOLLOWING
+                h4 #{userprofile.numberoffollowing}
+              .col-md-4.user-pad.text-center
+                h3 APPRECIATIONS
+                h4 #{userprofile.appreciations}
+
+
+  #content2
+    .content-text
+      if userprofile == null
+        h2 Your Stories
+      else
+        h2 #{userprofile.username}'s Stories
+  include ../partials/storyfeed
